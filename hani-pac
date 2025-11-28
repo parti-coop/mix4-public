@@ -1,0 +1,21 @@
+function FindProxyForURL(url, host) {
+  // 프록시를 사용할 도메인 목록
+  var proxyDomains = [
+    "www-test.hani.co.kr",
+    "api-dev-partner.hani.co.kr",
+    "partner-api.hani.co.kr",
+    "membertest.hani.co.kr",
+    "santa.hani.co.kr",
+    "h191.hani.co.kr",
+    "haniboy191.hani.co.kr",
+    "appdev.hani.co.kr",
+  ];
+
+  // host가 proxyDomains 목록에 있으면 프록시 사용
+  if (proxyDomains.indexOf(host) !== -1) {
+    return "PROXY proxy-hani.parti.coop:9090";
+  }
+
+  // 나머지 도메인은 직접 연결
+  return "DIRECT";
+}
